@@ -89,11 +89,12 @@ class ProductsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-
+        $model->loadI18n($model);
+        
         if (Yii::$app->request->post()) {
             $model->load(Yii::$app->request->post());
             $model->save();
+            //return var_dump($model->errors);
 
             Yii::$app->session->setFlash('success', 'Product updated');
             return $this->redirect('/backend/web/index.php?r=products%2Fupdate&id='.$model->id);

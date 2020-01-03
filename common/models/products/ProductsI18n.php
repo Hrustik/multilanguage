@@ -3,6 +3,7 @@
 namespace common\models\products;
 
 use Yii;
+use common\components\LocaleTrait;
 
 /**
  * This is the model class for table "products_i18n".
@@ -14,11 +15,16 @@ use Yii;
  */
 class ProductsI18n extends \yii\db\ActiveRecord
 {
+    use LocaleTrait;
+    protected static $relationColumnName = 'product_id';
     /**
      * @param $name
      * @param $locale
      * @return static
      */
+
+
+
     public static function create($name, $locale)
     {
         $model = new static();

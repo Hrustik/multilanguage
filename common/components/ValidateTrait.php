@@ -4,7 +4,7 @@ namespace common\components;
 
 use common\models\hybrids\PdHybridsI18n;
 use common\models\microelement\PdMicroelementI18n;
-use common\models\products\PdProductI18n;
+use common\models\products\ProductsI18n;
 use yii\validators\EmailValidator;
 use yii\validators\NumberValidator;
 use yii\validators\RequiredValidator;

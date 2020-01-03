@@ -17,15 +17,16 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'order')->textInput(['maxlength' => true]) ?>
-            <?= "Trans Ua:".print_r($model->translation); ?>
+<!--            --><?//= "Trans Ua:".print_r($model->translation); ?>
 
             <?php
 
-            foreach (Yii::$app->params['locale'] as $key => $locale) {
-                echo "|||";
-                $form->field($model, "i18n")->textInput();
-                $form->field($model, "i18n[$locale][name]")->textInput()->label(Yii::t('app', 'Name') . ' (' . $locale . ')');
-            } ?>
+            foreach (Yii::$app->params['locale'] as $key => $locale): ?>
+<!--            --><?php //var_dump($model->i18n); ?>
+<!--                --><?//= $form->field($model, "i18n")->textInput(); ?>
+                <?= $form->field($model, "i18n[$key][name]")->textInput()->label(
+                        Yii::t('app', 'Name') . ' (' . $key . ')'); ?>
+            <?php endforeach; ?>
 
         </div>
 
